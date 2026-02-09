@@ -1,4 +1,5 @@
-import { useState, useCallback } from "react"
+import { useState, useCallback } from "react";
+
 /**
  * Renders an array of strings passed in that can be filtered and added to as an
  * unordered list.
@@ -25,6 +26,8 @@ export default function Sidebar() {
   // its own item.
   return (
     <div>
+      
+
       <input
         type="text"
         id="newMenuItemValue"

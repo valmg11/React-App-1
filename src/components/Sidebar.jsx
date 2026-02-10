@@ -26,8 +26,7 @@ export default function Sidebar() {
   // its own item.
   return (
     <div>
-      
-
+      <p>Placeholder</p>
       <input
         type="text"
         id="newMenuItemValue"

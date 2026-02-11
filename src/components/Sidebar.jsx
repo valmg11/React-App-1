@@ -10,6 +10,8 @@ export default function Sidebar(props) {
   let [newMenuItem, setNewMenuItem] = useState("")
   // TODO: 2 Using a state hook, maintain the current menu items as an array state.
   // let [menuItems, setMenuItems] = useState(initialMenuItems)
+  
+
   let [filter, setFilter] = useState("")
   // Adds a single string passed in as parameter to the state element
   // "menuItems" that holds the set of current menu items.
@@ -27,6 +29,7 @@ export default function Sidebar(props) {
   // its own item.
   return (
     <div>
+
       <ul>
         <li>{props.initialMenuItems[0]}</li>
         <li>{props.initialMenuItems[1]}</li>

@@ -13,30 +13,45 @@ export default function Sidebar(props) {
   let [menuItems, setMenuItems] = useState([props.initialMenuItems]);
 
   let [filter, setFilter] = useState("")
+  
   // Adds a single string passed in as parameter to the state element
   // "menuItems" that holds the set of current menu items.
+
   let addMenuItem = useCallback(() => {
     console.log("Added menu item")
-    //   // TODO: 3. Add a new menu item to the correct variable associated with this class.
-    //   // This involves adding a parameter and changing a class instance variable (props).
-    //   setMenuItems([item, ...menuItems])
-  }, [])
+  //   // TODO: 3. Add a new menu item to the correct variable associated with this class.
+  //   // This involves adding a parameter and changing a class instance variable (props).
+  //   setMenuItems([item, ...menuItems])
+    setMenuItems([newMenuItem, ...menuItems])
+  }, [newMenuItem, menuItems])
 
   // TODO: 4. Display ONLY the menu items that contain the filter element value
   // "term" in them. Each menu item should be an unordered list item wrapped in an unordered list (ul) element.
 
   // TODO: 1 Render inside the outer div an unordered list of the menu items, with each string in the array
   // its own item.
+menuItems = props.initialMenuItems.map(newMenuItem => <li>{newMenuItem}</li>);
+
+let nextId = 0;
   return (
     <div>
-      <p>Test array:{menuItems}</p>
+      {/* <p>Test array:{menuItems}</p> */}
+      {/* <p>{newMenuItem}</p> */}
+
+      <ul>{menuItems}</ul>
+
       <ul>
+        {menuItems.map(newMenuItem => (
+          <li key={newMenuItem.id}>{addMenuItem.newMenuItem}</li>
+        ))}
+      </ul>
+      {/* <ul>
         <li>{props.initialMenuItems[0]}</li>
         <li>{props.initialMenuItems[1]}</li>
         <li>{props.initialMenuItems[2]}</li>
         <li>{props.initialMenuItems[3]}</li>
         <li>{props.initialMenuItems[4]}</li>
-      </ul>
+      </ul> */}
       
       <input
         type="text"
@@ -44,15 +59,26 @@ export default function Sidebar(props) {
         value={newMenuItem}
         onChange={(event) => setNewMenuItem(event.target.value)}
       ></input>
+
       <br />
+
       <button
         onClick={() => {
           /* TODO: 3 */
+          // console.log(addMenuItem);
+          addMenuItem();
+          console.log({newMenuItem});
+          setMenuItems([
+            ...menuItems,
+            { id: nextId++, newMenuItem: {newMenuItem}}
+          ]);
         }}
       >
         Add Item
       </button>
+
       <br />
+
       <input
         id="filter"
         type="text"
